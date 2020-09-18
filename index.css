@@ -684,6 +684,7 @@ a:hover .callout__text {
 .site-footer {
   padding: 4rem;
   background-color: var(--highlight-yellow);
+  text-align: center;
 }
 
 /* }}} */
