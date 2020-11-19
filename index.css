@@ -522,7 +522,8 @@ a:hover .callout__text {
   grid-column-end: -1;
 }
 
-.project__title {
+.project__title,
+.team__title{
   text-transform: uppercase;
 }
 
@@ -584,17 +585,68 @@ a:hover .callout__text {
   justify-content: center;
 }
 
+.team__title{
+  border-top:3px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:0;
+  padding: 2em 1em;
+  background-color: var(--highlight-yellow);
+}
+
+.team__member{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: nowrap row;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.team__member-name{
+  display:flex;
+  flex-flow: nowrap column;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px dashed #000;
+}
+
+.team__member-name p{
+  font-weight:500;
+  text-align: center;
+  padding: 0 8px;
+}
+
+.team__member-links{
+  padding-left: 2ch;
+  padding-right: 2ch;
+  display:flex;
+  flex-flow: nowrap column;
+  gap: 1ch;
+  justify-content: left;
+  align-items: left;
+}
 /* }}} */
 
 /* Grid specific {{{ */
 
-@media screen and (max-width: 749px) {
+@media screen and (max-width: 779px) {
   .site-header__contact {
     padding-bottom: 1em;
   }
+
+  .team__member{
+    border-bottom: 1px dashed #000;
+  }
+
+  .team__member:last-of-type{
+    border-bottom: none;
+  }
 }
 
-@media screen and (min-width: 750px) {
+
+@media screen and (min-width: 780px) {
 
   body{
     border-width: 1.5px;
@@ -615,11 +667,6 @@ a:hover .callout__text {
     border-right: 1.5px solid #000;
   }
 
-  .project__header--last,
-  .project__header--last ~ .project__item {
-    border-right: none;
-  }
-
   .icon {
     width: 32px;
     height: 32px;
@@ -627,6 +674,32 @@ a:hover .callout__text {
 
   .project__header{
     border-top-width: 1.5px;
+  }
+
+  .site-header__title {
+    border-right: 3px solid #000;
+  }
+
+  .team__title{
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+
+  .team__member{
+    border-right: 1px dashed #000;
+    border-bottom: 1px dashed #000;
+  }
+
+  .team__member:nth-of-type(3n+1),
+  .project__header:nth-of-type(3n),
+  .project__description:nth-of-type(3n+2),
+  .project__item-code:nth-of-type(3n+1),
+  .project__item-site:nth-of-type(3n){
+    border-right:none;
+  }
+
+  .team__member:nth-last-of-type(-n+3){
+    border-bottom: 2px solid #000;
   }
 
 }
@@ -674,6 +747,10 @@ a:hover .callout__text {
 
   .project__header{
     border-top-width: 3px;
+  }
+
+  .team__member:nth-last-of-type(-n+3){
+    border-bottom: 3px solid #000;
   }
 }
 
